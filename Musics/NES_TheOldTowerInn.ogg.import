@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/NES_TheOldTowerInn.ogg-cedba728cec673fb9b67168a3e26cbb5.oggstr"
+
+[deps]
+
+source_file="res://Musics/NES_TheOldTowerInn.ogg"
+dest_files=[ "res://.import/NES_TheOldTowerInn.ogg-cedba728cec673fb9b67168a3e26cbb5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
