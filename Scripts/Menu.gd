@@ -7,19 +7,13 @@ const STOP_BOTTOM = 173
 enum Menu {START = 0, OPTIONS = 1, SCORE = 2, EXIT = 3}
 var fullScreen = false
 var selectedMenu = Menu.START
-# ADDED 20/09/2019
 var currentPosY = 0
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-#  var select = preload("res://Scenes/Select.tscn").instance()
-#  $"/root/Menu".add_child(select)
-#  $Select/AnimPlayer.play("Select")
   var select = preload("res://Scenes/Select.tscn").instance()
   $"/root/Menu".add_child(select)
   $Select/AnimPlayer.play("Select")
-  # ADDED 20/09/2019
   var selectPosition = $Select/AnimPlayer/Sprite.position
   currentPosY = selectPosition.y
 
@@ -35,7 +29,6 @@ func _process(delta):
   var escape = Input.is_action_just_pressed("ui_cancel")
   var select = Input.is_action_just_pressed("ui_accept")
   var fullscreen = Input.is_action_just_released('ui_f')
-#  var selectPosition = $Select/AnimPlayer/Sprite.position
 
   # Passage en fullscreen et inversement
   if(fullscreen):
@@ -62,6 +55,8 @@ func _process(delta):
       currentPosY = STOP_TOP
       selectedMenu = Menu.START
 
+  $Select/AnimPlayer/Sprite.position.y = currentPosY
+
   if up or down:
     if OS.is_debug_build() == false:
       $SoundChange.play()
@@ -75,7 +70,7 @@ func _process(delta):
       Menu.EXIT:
         get_tree().quit()
       Menu.START:
-        print("start")
+        get_tree().change_scene('res://Scenes/Story.tscn')
       Menu.OPTIONS:
         print("options")
       Menu.SCORE:
@@ -84,4 +79,3 @@ func _process(delta):
   if escape:
     get_tree().quit()
 
-  $Select/AnimPlayer/Sprite.position.y = currentPosY
