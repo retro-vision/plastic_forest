@@ -17,10 +17,6 @@ func _ready():
   var selectPosition = $Select/AnimPlayer/Sprite.position
   currentPosY = selectPosition.y
 
-func _draw():
-  if OS.is_debug_build() == false:
-    $Music.play()
-
 func _process(delta):
 
   # Teste les touches de gestions du menu
@@ -58,19 +54,17 @@ func _process(delta):
   $Select/AnimPlayer/Sprite.position.y = currentPosY
 
   if up or down:
-    if OS.is_debug_build() == false:
-      $SoundChange.play()
+    $SoundChange.play()
 
   if select:
-    if OS.is_debug_build() == false:
-      $SoundSelect.play()
-    OS.delay_msec(500)
+    $SoundSelect.play()
+    OS.delay_msec(300)
 
     match(selectedMenu):
       Menu.EXIT:
         get_tree().quit()
       Menu.START:
-        get_tree().change_scene('res://Scenes/Story.tscn')
+        get_tree().change_scene("res://Scenes/Story.tscn")
       Menu.OPTIONS:
         print("options")
       Menu.SCORE:

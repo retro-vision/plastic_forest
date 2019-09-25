@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Pictures/Menu.png" type="Texture" id=2]
-[ext_resource path="res://Musics/NES_TheOldTowerInn.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Sounds/Menu1A.wav" type="AudioStream" id=4]
-[ext_resource path="res://Sounds/sfx_sounds_pause5_in.wav" type="AudioStream" id=5]
+[ext_resource path="res://Musics/04 - Sanctuary.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/Pickup_Coin.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/Menu1A.wav" type="AudioStream" id=5]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,9 +15,11 @@ texture = ExtResource( 2 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+autoplay = true
 
 [node name="SoundChange" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+volume_db = -7.068
 
 [node name="SoundSelect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Background/bg_sky.png" type="Texture" id=2]
+[ext_resource path="res://Background/bg_mountains_far.png" type="Texture" id=3]
+[ext_resource path="res://Background/bg_mountains_near.png" type="Texture" id=4]
+[ext_resource path="res://Background/bg_grass_far.png" type="Texture" id=5]
+[ext_resource path="res://Background/bg_grass_near.png" type="Texture" id=6]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 240.0 ],
+"_edit_vertical_guides_": [ 320.0 ]
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_scale = Vector2( 0.1, 0.1 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/Sky"]
+position = Vector2( 240, 32 )
+scale = Vector2( 1, 1.52941 )
+texture = ExtResource( 2 )
+
+[node name="MountainsFar" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( 0, -100 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/MountainsFar"]
+position = Vector2( 240, 104 )
+scale = Vector2( 1, 0.999999 )
+texture = ExtResource( 3 )
+
+[node name="MountainsNear" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_scale = Vector2( 0.13, 0.13 )
+motion_offset = Vector2( 0, -100 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/MountainsNear"]
+position = Vector2( 240, 104 )
+scale = Vector2( 1, 0.999999 )
+texture = ExtResource( 4 )
+
+[node name="GrassFar" type="ParallaxLayer" parent="ParallaxBackground"]
+editor/display_folded = true
+motion_scale = Vector2( 0.17, 0.17 )
+motion_offset = Vector2( 0, -100 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/GrassFar"]
+position = Vector2( 240, 104 )
+texture = ExtResource( 5 )
+
+[node name="GrassNear" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
+motion_offset = Vector2( 0, -100 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/GrassNear"]
+position = Vector2( 240, 120 )
+scale = Vector2( 1, 0.882353 )
+texture = ExtResource( 6 )

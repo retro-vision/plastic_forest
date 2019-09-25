@@ -1,0 +1,77 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Hero/Hero_01.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Hero/Hero_02.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Hero/Hero_03.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Hero/Hero_04.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Hero/Hero_05.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Hero/Hero_06.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Hero/Hero_07.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Hero/Hero_08.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Hero/Hero_09.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Hero/Hero_10.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Hero/Hero_11.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Hero/Hero_61.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Hero/Hero_62.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Hero/Hero_63.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Hero/Hero_64.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Hero/Hero_65.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Hero/Hero_66.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Hero/Hero_67.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Hero/Hero_68.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Hero/Hero_69.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Hero/Hero_12.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Hero/Hero_13.png" type="Texture" id=23]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Run",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "Dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "Down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 16 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Dead"
+speed_scale = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+process_mode = 0
+limit_left = 0
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+offset_v = -1.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
